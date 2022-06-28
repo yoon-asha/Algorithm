@@ -17,8 +17,17 @@
  * 입력된 순서대로 일곱 난쟁이의 키를 출력한다.
  */
 
-function solution(arr){
-  arr.reduce()
-}
-
- console.log('4= ' + solution([20, 7, 23, 19, 10, 15, 25, 8, 13]))
+function solution(arr) {
+  let answer = arr
+  let sum = arr.reduce((a, b) => a + b)
+  for (let i = 0; i < 8; i++) {
+    for (let j = i + 1; j < 9; j++) {
+      if ((sum - (answer[i] + answer[j])) == 100) {
+        arr.splice(j, 1)
+        arr.splice(i, 1)
+      }
+    }
+  }
+  return answer
+} 
+console.log('1= ' + solution([20, 7, 23, 19, 10, 15, 25, 8, 13]))
