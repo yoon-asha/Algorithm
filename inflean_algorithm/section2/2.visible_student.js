@@ -12,16 +12,18 @@
  * 출력설명
  * 선생님이 볼 수 있는 최대학생수를 출력한다.
  */
-const solution = n => {
-  n.sort((a, b) => a - b)
-  for (let i = 0; i < n.length; i++) {
-    if (n[i] >= n[i + 1]) return i + 1;
-    else if (i === n.length - 1) {
-      return n.length
+function solution() {
+  let answer = 1,
+    max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      answer++;
+      max = arr[i];
     }
   }
+  return answer;
 }
 
-console.log(solution([130, 135, 148, 140, 145, 150, 150, 153])); // 2명이 키가 같은 경우
-console.log(solution([130, 135, 148, 140, 145, 150, 151, 153])); // 모두 볼 수 있는 경우
+console.log(solution([130, 135, 148, 140, 145, 150, 150, 153]));
+console.log(solution([130, 135, 148, 140, 145, 150, 151, 153]));
 console.log(solution([130, 130, 130, 130, 130])); // 모두 키가 같은 경우
