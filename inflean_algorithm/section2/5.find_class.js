@@ -14,9 +14,6 @@
 ▣ 출력예제 1 
 43215
  */
-const solution = (arr) => {
-  
-}
 
 // 선생님 답
 function solution(arr){  
