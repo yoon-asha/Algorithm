@@ -40,7 +40,7 @@ const solution = (arr) => {
     diagonal_1 += arr[i][i];
     diagonal_2 += arr[i][n - i];
 
-    (sumX = 0), (sumY = 0);
+    (sumX = 0), (sumY = 0); // 0으로 초기화
 
     for (let j = 0; j < n; j++) {
       sumX += arr[i][j];

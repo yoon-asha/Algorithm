@@ -33,10 +33,6 @@ for를 두 번 돌면 x y를 다 돌 수 있겠지
 
  */
 
-const solution = (arr) => {
-  const xy = [[],[],[],[]]
-}
-
 function solution(arr){  
   let answer=0;
   let n=arr.length;
