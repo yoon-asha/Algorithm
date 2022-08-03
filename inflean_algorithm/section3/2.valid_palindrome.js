@@ -17,10 +17,6 @@ YES
 
  */
 
-const solution = (str) => {
-
-}
-
 function solution(s){
     let answer="YES";
     s=s.toLowerCase().replace(/[^a-z]/g, '');
