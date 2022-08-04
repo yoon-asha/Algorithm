@@ -16,10 +16,6 @@ g0en2T0s8eSoft
 208
  */
 
-const solution = (str) => {
-
-}
-
 function solution(str){
     let answer="";
     for(let x of str){
