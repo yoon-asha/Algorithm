@@ -22,6 +22,10 @@ function solution(str){
         if(!isNaN(x)) answer+=x;
     }  
     return parseInt(answer);
+    /** return 할 때 parseInt 안쓰려면
+     * if(!isNaN(x)) answer=answer*10+Number(x)
+     * 이렇게 할 수도 있음!
+     */
 }
 
 let str="g0en2T0s8eSoft";

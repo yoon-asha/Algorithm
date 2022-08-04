@@ -35,7 +35,7 @@ for를 두 번 돌면 x y를 다 돌 수 있겠지
 
 function solution(arr){  
   let answer=0;
-  let n=arr.length;
+  let n=arr.length; // 상 좌 하 우
   let dx=[-1, 0, 1, 0];
   let dy=[0, 1, 0, -1];
   for(let i=0; i<n; i++){

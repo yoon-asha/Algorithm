@@ -18,9 +18,21 @@ YES
  */
 
 const solution = (str) => {
-    let reverse = [str.toLowerCase()].reverse().join()
+    // let reverse = [str.toLowerCase()].reverse().join()
+    let reverse = [...str.toLowerCase()].reverse().join('')
     if (str.toLowerCase() === reverse) return 'YES'
     else return 'NO'
+  }
+
+// reverse 안쓰고 푸는 방법
+  const solution = (str) => {
+    let reverse = []
+    for(let i = 0; i<str.length;i++) {
+      reverse.push(str[str.length-1-i].toLowerCase())
+      // console.log(reverse)
+    }
+      if(reverse.join('') === str.toLowerCase()) return 'YES'
+      else return 'NO'
   }
   
 // 선생님 답
@@ -33,4 +45,7 @@ const solution = (str) => {
     }
     return answer;
 }
+// reverse 사용안하고 직접 하라고 하면 이렇게 하면 됨!
+
   console.log(solution('gooG'))
+  console.log(solution('goot'))
