@@ -17,10 +17,12 @@ teachermode e
 
  */
 
-const solution = (s) => {
-  // for (let i = 0; i < s.length; i++) {
-    
-  // }
+const solution = (s, t) => {
+  /** s에서 t의 인덱스 번호를 받음 < 처음거 하나만 나오는거 x 모든 인덱스
+   * 예를 들어 5개중에  1,4 이렇게 있으면
+   * 나머지 인덱스에서 (절대값)차를 구한다? 0-1=1, 1-1=0, 2-1=1, 3-4=1, 4=4=0 
+   * 01234 > 10110
+  */
 }
 
 function solution(s, t) {
