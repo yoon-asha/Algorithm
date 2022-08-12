@@ -16,33 +16,26 @@
 ▣ 출력예제 1 
 137
  */
-function solution(n, arr){
+// 다르게 풀어보고 싶어서 적어본 답...다른 말로... 객기..오기..?
+function solution(arr) {
   let sum = {}
- for(let i = 0; i<arr.length; i++) {
-//    sum.push(arr[i].toString().split('').reduce((a,b)=> Number(a)+Number(b)))
-
-//    sum.sort((a,b) => b-a)
-   
-  console.log(arr[i])
-   sum[arr[i]]=arr[i].toString().split('').reduce((a,b)=> Number(a)+Number(b))
-/*
-sum 배열에 arr[i]의 합을 넣는다 > 
-큰 순서로 정리한다 > 
-이걸 arr랑 일치시켜서 첫번째거를 return
-
-그럼 오브젝트로 하면? 키와 값으로 해서 하면 될지도
-키에 arr[i] value에 reduce한 값
-
-*/
- }  
-  console.log(Object.entries(sum))
-
-  
-
+  let max = 0
+  let answer = 0
+  let newArr
+  arr.sort((a,b)=>a-b)
+  for (let i = 0; i < arr.length; i++) {
+    sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => Number(a) + Number(b))
+    newArr = Object.entries(sum)
+    max = Math.max(newArr[i][1], max)
+    if(newArr[i][1] === max){
+      answer = Math.max(newArr[i][0], answer)
+    }
+  } 
+  return answer
 }
 
-
-function solution(n, arr){
+// 선생님 답
+function solution(arr){
   let answer, max=Number.MIN_SAFE_INTEGER;
   for(let x of arr){
       let sum=0, tmp=x;
@@ -50,6 +43,8 @@ function solution(n, arr){
           sum+=(tmp%10);
           tmp=Math.floor(tmp/10);
       }
+    // 이것도 가능 sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => a + Number(b),0)
+      
       if(sum>max){
           max=sum;
           answer=x;
@@ -62,4 +57,5 @@ function solution(n, arr){
 }
 
 let arr=[128, 460, 603, 40, 521, 137, 123];
-console.log(solution(7, arr));
+console.log(solution(arr));
+console.log(solution([235,1234]));
