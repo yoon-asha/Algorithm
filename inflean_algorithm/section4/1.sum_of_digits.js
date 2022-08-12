@@ -18,10 +18,7 @@
  */
 // 다르게 풀어보고 싶어서 적어본 답...다른 말로... 객기..오기..?
 function solution(arr) {
-  let sum = {}
-  let max = 0
-  let answer = 0
-  let newArr
+  let sum = {}, max = 0, answer = 0, newArr
   arr.sort((a,b)=>a-b)
   for (let i = 0; i < arr.length; i++) {
     sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => Number(a) + Number(b))
