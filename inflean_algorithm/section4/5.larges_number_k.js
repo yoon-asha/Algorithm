@@ -16,6 +16,22 @@
 143
  */
 
+
+const solution = (n, k, card) => {
+    let newCard = [...new Set(card.sort((a, b) => b - a))]
+    let answer = cnt = lank = 0
+    for (let i = 0; i < newCard.length; i++) {
+      for (let j = i + 1; j < newCard.length; j++) {
+        for (let s = j + 1; k < newCard.length; s++) {
+          answer = newCard[i] + newCard[j] + newCard[s]
+          cnt++
+          // console.log(cnt, k, answer)
+          if (cnt === k) return answer
+        }
+      }
+    }
+}
+
 function solution(n, k, card){
     let answer;
     let tmp = new Set();
