@@ -21,7 +21,20 @@ N개의 수로 이루어진 수열이 주어집니다.
 
 */
 
-const solution = (m, arr) => {};
+const solution = (m, arr) => {
+  let answer = 0;
+  let count = 0;
+  let j = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    answer += arr[i];
+    while (answer > m) {
+      answer -= arr[j++];
+    }
+    count += i - j + 1;
+  }
+  return count;
+};
 
 function solution(m, arr) {
   let answer = 0,
