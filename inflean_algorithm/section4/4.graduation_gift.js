@@ -23,9 +23,6 @@
 출력설명
 (2, 2), (4, 3), (4, 5)와 (10, 3)를 할인받아 (5, 3)에 사면 비용이 4+7+9+8=28입니다.
  */
-const solution = (m, product) => {
-
-}
 
 function solution(m, product){
     let answer=0;
