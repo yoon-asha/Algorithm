@@ -1,4 +1,3 @@
-
 /**
  * 문제
 카지노에서 제일 인기 있는 게임 블랙잭의 규칙은 상당히 쉽다. 카드의 합이 21을 넘지 않는 한도 내에서, 카드의 합을 최대한 크게 만드는 게임이다. 블랙잭은 카지노마다 다양한 규정이 있다.
@@ -28,36 +27,28 @@ N장의 카드에 써져 있는 숫자가 주어졌을 때, M을 넘지 않으�
 93 181 245 214 315 36 185 138 216 295
  */
 
-
-
-let fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = fs.readFileSync(filePath).toString().split("\n");
-input[0] = input[0].split(" ");
-const cards = input[1].split(" ").map((element) => Number(element));
-const N = Number(input[0][0]); // N은 총 카드의 개수
-const M = Number(input[0][1]); // M은 3개의 숫자의 합과 가장 가까운 목표 값
+let fs = require("fs")
+const filePath = "./input.txt"
+let input = fs.readFileSync(filePath).toString().split("\n")
+input[0] = input[0].split(" ")
+const cards = input[1].split(" ").map(Number)
+const N = Number(input[0][0]) // N은 총 카드의 개수
+const M = Number(input[0][1]) // M은 3개의 숫자의 합과 가장 가까운 목표 값
 
 const solution = (n, m, arr) => {
-  console.log(arr)
-  console.log(n)
-  console.log(m)
-  let answer = 0;
+  let answer = 0
 
-  product.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
   for (let i = 0; i < n; i++) {
-    let money = m - (product[i][0] / 2 + product[i][1]);
-    let cnt = 1;
-    for (let j = 0; j < n; j++) {
-      if (j !== i && (product[j][0] + product[j][1]) > money) break;
-      if (j !== i && (product[j][0] + product[j][1]) <= money) {
-        money -= (product[j][0] + product[j][1]);
-        cnt++;
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        let card = arr[i] + arr[j] + arr[k]
+        if (card <= m) {
+          answer = Math.max(answer, card)
+        }
       }
     }
-    answer = Math.max(answer, cnt);
   }
-  return answer;
+  return answer
 }
 
 console.log(solution(N, M, cards))
