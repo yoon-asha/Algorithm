@@ -4,21 +4,29 @@
  * 해당 자동차의 운행을 금지하는 것이다.
  * 예를 들어 차 번호의 일의 자리 숫자가 7이면 7일 17일 27일에는 운행하지 못한다.
  * 차 번호의 일의 자리 숫자가 0이면 10일 20일 30일에 운행하지 못한다.
- * 
+ *
  * 일일 경찰관이 되어 10부제를 위반하는 자동차의 대수를 세는 봉사를 한다.
  * 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두 자리 수가 주어졌을 때
  * 위반하는 자동차의 대수를 출력하는 프로그램을 작성하세요.
- * 
+ *
  * 첫 줄에 날짜의 일의 자리 숫자, 둘째 줄에 자동차 7대의 끝 두 자리 번호가 주어진다.
  */
 
 function solution(day, arr) {
   let answer = 0
 
-  for(let i =0; i<arr.length; i++){
-    if(arr[i]%10 === day) answer++
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 10 === day) answer++
   }
 
+  return answer
+}
+
+function solution2(day, arr) {
+  let answer = 0
+  for (x of arr) {
+    if (x % 10 === day) answer++
+  }
   return answer
 }
 

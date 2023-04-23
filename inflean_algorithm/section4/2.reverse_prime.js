@@ -14,29 +14,30 @@ N개의 자연수가 입력되면 각 자연수를 뒤집은 후 그 뒤집은 �
 ▣ 출력예제 1 23 2 73 2 3
  */
 
-function isPrime(num){
-    if(num===1) return false;
-    for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
-        if(num%i===0) return false;
-    }
-    return true;
+function isPrime(num) {
+  if (num === 1) return false
+  // sqrt는 제곱근까지만 도는거
+  for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+    if (num % i === 0) return false
+  }
+  return true
 }
-function solution(arr){
-    let answer=[];
-    for(let x of arr){
-        // let res=0;
-        while(x){
-            let t=x%10;
-            res=res*10+t;
-            x=parseInt(x/10);
-        }
-        // 이렇게 두가지 방법 모두 가능
-        // let res = Number(x.toString().split('').reverse().join(''))
-        
-        if(isPrime(res)) answer.push(res);
+function solution(arr) {
+  let answer = []
+  for (let x of arr) {
+    // let res=0;
+    while (x) {
+      let t = x % 10
+      res = res * 10 + t
+      x = parseInt(x / 10) //math.floor()
     }
-    return answer;
+    // 이렇게 두가지 방법 모두 가능
+    // let res = Number(x.toString().split('').reverse().join(''))
+
+    if (isPrime(res)) answer.push(res)
+  }
+  return answer
 }
 
-let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
-console.log(solution(arr));
+let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100]
+console.log(solution(arr))

@@ -5,18 +5,19 @@
 
 // 내 답
 function solution(s) {
-  s.replace(/A/g, '#') // 대소구분 안할거면 /A/gi
+  return s.replace(/A/g, '#') // 대소구분 안할거면 /A/gi
 }
 
 // 선생님 답
 function solution(s) {
-  let answer = "";
+  // 문자열은 주소참조가 아니라 값이 복사돼서 여기서는 s를 수정해도 answer에 반영이 안됨
+  let answer = ''
   for (let x of s) {
-    if (x == 'A') answer += '#';
-    else answer += x;
+    if (x === 'A') answer += '#'
+    else answer += x
   }
-  return answer;
+  return answer
 }
 
-let str = "BANANA";
-console.log(solution(str));
+let str = 'BANANA'
+console.log(solution(str))

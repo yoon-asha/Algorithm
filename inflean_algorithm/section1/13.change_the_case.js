@@ -7,7 +7,8 @@ function solution(s) {
   let answer = ''
   for (let x of s) {
     if (x === x.toLowerCase()) answer += x.toUpperCase()
-    if (x === x.toUpperCase()) answer += x.toLowerCase()
+    else answer += x.toLowerCase()
+    // if (x === x.toUpperCase()) answer += x.toLowerCase()
   }
   return answer
 }

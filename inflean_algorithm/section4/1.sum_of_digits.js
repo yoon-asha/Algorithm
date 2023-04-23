@@ -18,41 +18,48 @@
  */
 // 다르게 풀어보고 싶어서 적어본 답...다른 말로... 객기..오기..?
 function solution(arr) {
-  let sum = {}, max = 0, answer = 0, newArr
-  arr.sort((a,b)=>a-b)
+  let sum = {},
+    max = 0,
+    answer = 0,
+    newArr
+
   for (let i = 0; i < arr.length; i++) {
-    sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => Number(a) + Number(b))
+    sum[arr[i]] = arr[i]
+      .toString()
+      .split('')
+      .reduce((a, b) => Number(a) + Number(b))
     newArr = Object.entries(sum)
     max = Math.max(newArr[i][1], max)
-    if(newArr[i][1] === max){
+    if (newArr[i][1] === max) {
       answer = Math.max(newArr[i][0], answer)
     }
-  } 
+  }
   return answer
 }
 
 // 선생님 답
-function solution(arr){
-  let answer, max=Number.MIN_SAFE_INTEGER;
-  for(let x of arr){
-      let sum=0, tmp=x;
-      while(tmp){
-          sum+=(tmp%10);
-          tmp=Math.floor(tmp/10);
-      }
-    // 이것도 가능 sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => a + Number(b),0)
-      
-      if(sum>max){
-          max=sum;
-          answer=x;
-      }
-      else if(sum===max){
-          if(x>answer) answer=x;
-      }
+function solution(arr) {
+  let answer,
+    max = Number.MIN_SAFE_INTEGER
+  for (let x of arr) {
+    let sum = 0,
+      tmp = x
+    while (tmp) {
+      sum += tmp % 10
+      tmp = Math.floor(tmp / 10)
+    }
+    // 위 while문 대신 이것도 가능 sum[arr[i]] = arr[i].toString().split('').reduce((a, b) => a + Number(b),0)
+
+    if (sum > max) {
+      max = sum
+      answer = x
+    } else if (sum === max) {
+      if (x > answer) answer = x
+    }
   }
-  return answer;
+  return answer
 }
 
-let arr=[128, 460, 603, 40, 521, 137, 123];
-console.log(solution(arr));
-console.log(solution([235,1234]));
+let arr = [128, 460, 603, 40, 521, 137, 123]
+console.log(solution(arr))
+console.log(solution([235, 1234]))
