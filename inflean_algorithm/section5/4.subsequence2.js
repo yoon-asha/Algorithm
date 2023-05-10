@@ -20,35 +20,19 @@ N개의 수로 이루어진 수열이 주어집니다.
 10
 
 */
-
-const solution = (m, arr) => {
-  let answer = 0;
-  let count = 0;
-  let j = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    answer += arr[i];
-    while (answer > m) {
-      answer -= arr[j++];
-    }
-    count += i - j + 1;
-  }
-  return count;
-};
-
 function solution(m, arr) {
   let answer = 0,
     sum = 0,
-    lt = 0;
+    lt = 0
   for (let rt = 0; rt < arr.length; rt++) {
-    sum += arr[rt];
+    sum += arr[rt]
     while (sum > m) {
-      sum -= arr[lt++];
+      sum -= arr[lt++]
     }
-    answer += rt - lt + 1;
+    answer += rt - lt + 1
   }
-  return answer;
+  return answer
 }
 
-let a = [1, 3, 1, 2, 3];
-console.log(solution(5, a));
+let a = [1, 3, 1, 2, 3]
+console.log(solution(5, a))

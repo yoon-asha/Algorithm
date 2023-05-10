@@ -15,7 +15,6 @@
 
 ▣ 출력예제 1 
 C
-  
  */
 
 function solution(s) {
@@ -25,6 +24,8 @@ function solution(s) {
   for (let x of s) {
     if (sH.has(x)) sH.set(x, sH.get(x) + 1)
     else sH.set(x, 1)
+    //  이렇게 한 줄로도 쓸 수 있다.
+    // sH.set(x, (sH.get(x) || 0) + 1)
   }
   let max = Number.MIN_SAFE_INTEGER
   for (let [key, val] of sH) {
@@ -34,7 +35,7 @@ function solution(s) {
     }
   }
 
-  return answer;
+  return answer
 }
 
 console.log(solution('BACBACCACCBDEDE'))

@@ -26,6 +26,15 @@
 */
 
 function solution(k, arr) {
+  let answer,
+    sum = 0
+  // 슬라이딩 윈도우
+  for (let i = 0; i < k; i++) sum += arr[i]
+  answer = sum
+  for (let i = k; i < arr.length; i++) {
+    sum += arr[i] - arr[i - k]
+    answer = Math.max(answer, sum)
+  }
   return answer
 }
 

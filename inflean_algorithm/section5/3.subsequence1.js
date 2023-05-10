@@ -19,40 +19,23 @@ N개의 수로 이루어진 수열이 주어집니다.
 ▣ 출력예제 1 
 3
 
+투포인터 기본
 */
-
-const solution = (m, arr) => {
-  let answer = 0;
-  let count = 0;
-  let j = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    answer += arr[i];
-    if (answer === m) {
-      count++;
-    }
-    if (answer >= m) {
-      answer -= arr[j++];
-      if (answer === m) count++;
-    }
-  }
-  return count;
-};
 
 function solution(m, arr) {
   let answer = 0,
     lt = 0,
-    sum = 0;
+    sum = 0
   for (let rt = 0; rt < arr.length; rt++) {
-    sum += arr[rt];
-    if (sum === m) answer++;
+    sum += arr[rt]
+    if (sum === m) answer++
     while (sum >= m) {
-      sum -= arr[lt++];
-      if (sum === m) answer++;
+      sum -= arr[lt++]
+      if (sum === m) answer++
     }
   }
-  return answer;
+  return answer
 }
 
-let a = [1, 2, 1, 3, 1, 1, 1, 2];
-console.log(solution(6, a));
+let a = [1, 2, 1, 3, 1, 1, 1, 2]
+console.log(solution(6, a))
