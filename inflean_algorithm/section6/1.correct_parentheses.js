@@ -26,8 +26,12 @@ function solution(s) {
       stack.pop()
     }
   }
+  if (stack.length > 0) return 'NO'
   return 'YES'
 }
 
-console.log(solution('(()(()))(()'))
-console.log(solution('())))(('))
+console.log(solution('(()(()))(()')) // no
+console.log(solution('())))((')) // no
+console.log(solution('()()')) // yes
+console.log(solution('))((')) // no
+console.log(solution('((())(()))')) // yes
