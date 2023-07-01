@@ -33,7 +33,6 @@ function solution(order) {
     if (start === order[i]) {
       answer++
       start++
-      continue
     }
   }
   return answer
