@@ -2,8 +2,9 @@ function solution(n) {
   var answer = []
 
   function hanoi(n, from, to, via) {
-    if (n === 1) answer.push([from, to])
-    else {
+    if (n === 1) {
+      answer.push([from, to])
+    } else {
       hanoi(n - 1, from, via, to)
       answer.push([from, to])
       hanoi(n - 1, via, to, from)
