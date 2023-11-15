@@ -35,24 +35,21 @@ NO
 NO
 */
 
-let [n, ...arr] = require("fs")
-  .readFileSync("./input.txt")
-  .toString()
-  .split("\n")
+let [n, ...arr] = require('fs').readFileSync('./input.txt').toString().split('\n')
 
 console.log(arr)
 let answer = []
 
 for (let i = 0; i < n; i++) {
   let cnt = 0
-  let ps = arr[i].split("")
+  let ps = arr[i].split('')
   for (let j = 0; j < ps.length; j++) {
-    if (ps[j] === "(") cnt++
-    if (ps[j] === ")") cnt--
+    if (ps[j] === '(') cnt++
+    if (ps[j] === ')') cnt--
     if (cnt < 0) break
   }
-  if (cnt === 0) answer.push("YES")
-  else answer.push("NO")
+  if (cnt === 0) answer.push('YES')
+  else answer.push('NO')
 }
 
-console.log(answer.join("\n"))
+console.log(answer.join('\n'))
